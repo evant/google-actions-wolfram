@@ -1,0 +1,40 @@
+{
+  "versionLabel": "1.0",
+  "agentInfo": {
+    "languageCode": "en-US",
+    "projectId": "evan-tatarka",
+    "voiceName": "female_1"
+  },
+  "actions": [
+    {
+      "description": "Launch intent",
+      "initialTrigger": {
+        "intent": "assistant.intent.action.MAIN"
+      },
+      "inDialogTriggers": [
+        {
+          "intent": "ASK_WOLFRAM_QUESTION",
+          "queryPatterns": [
+            {
+              "queryPattern": "(ask)? Wolfram Alpha"
+            }
+          ]
+        },
+        {
+          "intent": "ASK",
+          "queryPatterns": [
+            {
+              "queryPattern": "what is $SchemaOrg_Text:question"
+            },
+            {
+              "queryPattern": "how $SchemaOrg_Text:question"
+            }
+          ]
+        }
+      ],
+      "httpExecution": {
+        "url": "https://files.tatarka.me/actions"
+      }
+    }
+  ]
+}
